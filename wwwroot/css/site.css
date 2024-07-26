@@ -1,0 +1,136 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+/* about */
+.about {
+    padding: 2.5%;
+    margin: 4.5%;
+    border: solid 5px orange;
+    text-align: center;
+    font-size: 24px;
+    background-image: url("rit.jpg");
+    background-size: cover;
+}
+
+
+/* people css */
+.person {
+    min-height: 260px;
+    width: 200px;
+    display: inline-table;
+    position: relative;
+}
+
+
+.person > img {
+    max-width: 100px;
+    max-height: 100px;
+    position: relative; 
+    top: 50px; 
+}
+
+.person > .opener {
+    position: absolute;
+    top: 0; 
+    left: 50%; 
+    transform: translateX(-100%); 
+}
+.opener:hover {
+    color: #F76902;
+}
+#tab {
+    background-color: #F76902; /* Pantone 1505 C */
+}
+#t1 {
+    border: 4px solid #FF6F61; /* Pantone 1505 C */
+}
+
+/* sub roots employment */
+.flex-container {
+    border: 2px solid #FF6F61; /* Pantone 1505 C */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 20px;
+    background-image: url("rit.jpg");
+    background-size: cover;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns the content to the center */
+    justify-content: space-evenly;
+    flex: 1;
+}
+
+
+/*coop*/
+.title{
+    text-align:center;
+}
+#coopTable {
+    border: 1px solid #F76902; 
+}
+
+#coopTable th {
+    background-color: #F76902;
+    color: #FFFFFF; 
+}
+
+#coopTable td {
+    color: #000000;
+}
+
+
+
+
+
+/*employment*/
+.secondTitle {
+    margin-top: 30px;
+    text-decoration: underline;
+}
+#employmentTable {
+    border: 2px solid #F76902; /* Pantone 1505 C */
+}
+
+#employmentTable th {
+    background-color: #F76902; /* Pantone 1505 C */
+    color: #FFFFFF; /* White */
+}
+
+#employmentTable td {
+    color: #000000; /* Black */
+}
+
+/* degrees */
+.degree-button:hover {
+    color: #F76902;
+}
+
+.degree-button {
+    text-decoration: none;
+    color: black;
+}

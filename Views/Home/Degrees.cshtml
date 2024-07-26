@@ -1,0 +1,102 @@
+﻿@model IschoolJason.Models.DegreesModel;
+@{
+    ViewData["Title"] = Model.pageTitle; 
+}
+
+<h1 class="title">@ViewData["Title"]</h1> 
+
+<h3 class="secondTitle">Undergraduate Degrees</h3> 
+
+<div id="accordion">
+    <!-- accordion UI -->
+    @if (Model.Undergraduate != null) // Checks if there are undergraduate degrees to display
+    {
+        for (int i = 0; i < Model.Undergraduate.Length; i++) // Iterates over the list of undergraduate degrees
+        {
+            var degree = Model.Undergraduate[i]; // Retrieves the current undergraduate degree
+            if (degree != null) 
+            {
+                <div class="card">
+                    <!-- Represents a card for each undergraduate degree -->
+                    <div class="card-header" id="@($"heading{i}")">
+                        <!-- Header of the card -->
+                        <h5 class="mb-0">
+                            <button class="btn btn-link degree-button" data-toggle="collapse" data-target="@($"#collapse{i}")" aria-expanded="true" aria-controls="@($"collapse{i}")">
+                                @degree.Title 
+                                @degree.DegreeName 
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="@($"collapse{i}")" class="collapse show" aria-labelledby="@($"heading{i}")" data-parent="#accordion">
+                        <!-- Collapsible content for each undergraduate degree -->
+                        <div class="card-body">
+                            <h5>@degree.Title</h5> 
+                            <p>@degree.Description</p> 
+                            <ul>
+                                @if (degree.Concentrations != null)
+                                {
+                                    foreach (var concentration in degree.Concentrations) // Iterates over the concentrations
+                                    {
+                                        <li>@concentration</li> 
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    }
+
+    <h3 class="secondTitle">Graduate Degrees</h3> 
+    @if (Model.Graduate != null) // Checks if there are graduate degrees to display
+    {
+        for (int i = 0; i < Model.Graduate.Length; i++) // Iterates over the list of graduate degrees
+        {
+            var degree = Model.Graduate[i]; // Retrieves the current graduate degree
+            if (degree != null) 
+            {
+                <div class="card">
+                    <!-- Represents a card for each graduate degree -->
+                    <div class="card-header" id="@($"headingGrad{i}")">
+                        <!-- Header of the card -->
+                        <h5 class="mb-0">
+                            <button class="btn btn-link degree-button" data-toggle="collapse" data-target="@($"#collapseGrad{i}")" aria-expanded="true" aria-controls="@($"collapseGrad{i}")">
+                                @degree.Title 
+                                @degree.DegreeName 
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="@($"collapseGrad{i}")" class="collapse show" aria-labelledby="@($"headingGrad{i}")" data-parent="#accordion">
+                        <!-- Collapsible content for each graduate degree -->
+                        <div class="card-body">
+                            <h5>@degree.Title</h5> 
+                            <p>@degree.Description</p>
+                            <ul>
+                                @if (degree.Concentrations != null) 
+                                {
+                                    foreach (var concentration in degree.Concentrations) // Iterates over the concentrations
+                                    {
+                                        <li>@concentration</li> 
+                                    }
+                                }
+                            </ul>
+                            <h6>Available Certificates:</h6> 
+                            <ul>
+                                @if (degree.AvailableCertificates != null) 
+                                {
+                                    foreach (var certificate in degree.AvailableCertificates) // Iterates over the available certificates
+                                    {
+                                        <li>@certificate</li> 
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    }
+</div>
